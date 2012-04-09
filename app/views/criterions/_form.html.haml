@@ -1,0 +1,25 @@
+= form_for @criterion do |f|
+  -if @criterion.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@criterion.errors.count, "error")} prohibited this criterion from being saved:"
+      %ul
+        - @criterion.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :xpath
+    = f.text_field :xpath
+  .field
+    = f.label :node_number
+    = f.text_field :node_number
+  .field
+    = f.label :big_is_good
+    = f.check_box :big_is_good
+  .actions
+    = f.submit 'Save'

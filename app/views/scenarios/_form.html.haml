@@ -1,0 +1,23 @@
+= form_for @scenario do |f|
+  -if @scenario.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@scenario.errors.count, "error")} prohibited this scenario from being saved:"
+      %ul
+        - @scenario.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  - i=1
+  = f.fields_for :scenarioCriterions do |builder|
+    %p.criterion
+      = builder.label :criterion_id, "Criterion ##{i}"
+      = builder.collection_select(:criterion_id, Criterion.all, :id, :name)
+      = builder.label :weight, "Weight"
+      = builder.select(:weight, [['None', 0], ['Light', 1], ['Medium', 2], ['Heavy', 3]])
+      = builder.hidden_field(:_destroy) + link_to("remove", "javascript:void(0)", :class => "remove_child")
+      - i = i+1
+      
+  .actions
+    = f.submit 'Save'

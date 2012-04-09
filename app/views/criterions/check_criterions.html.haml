@@ -1,0 +1,18 @@
+
+= form_tag("/criterions/check_criterions")
+= label_tag(:stock, "stock")
+= text_field_tag(:stock)
+= submit_tag("Check Criterions")
+
+
+%table
+  %tr
+    %th Criterion
+    %th Score
+
+  - @criterions.each do |crit|
+    %tr
+      %td= crit.name
+      %td= crit.raw_value
+
+%br

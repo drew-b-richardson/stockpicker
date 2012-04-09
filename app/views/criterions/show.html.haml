@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @criterion.name
+%p
+  %b Url:
+  = @criterion.url
+%p
+  %b Xpath:
+  = @criterion.xpath
+
+= link_to 'Edit', edit_criterion_path(@criterion)
+\|
+= link_to 'Back', criterions_path

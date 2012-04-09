@@ -1,0 +1,34 @@
+%h1 Stocks#rate
+= form_tag(:controller => "stocks", :action => "rate", :method => "get") do
+  %p
+  =label_tag(:stocks, "stock symbols to rate")
+  = text_area_tag(:stocks)
+  %p= select_tag(:scenarios, options_from_collection_for_select(Scenario.all, :id, :name))
+  %div= submit_tag("Rate")
+
+%table
+  %tr
+    %th Stock
+    - if @stocks[0] != nil
+      - @stocks[0].scenario.scenarioCriterions.each do |sc| 
+        %th= sc.criterion.name 
+    %th Score
+
+  - if @stocks != nil
+    - @stocks.each do |stock|
+      %tr
+        %td= stock.stock_symbol
+        - stock.scenario.scenarioCriterions.each do |sc| 
+          %td
+            = sprintf('%.1f', sc.criterion.raw_value)
+            |
+            = sprintf('%.1f', sc.criterion.normalized_value)
+            |
+            = sprintf('%.1f', sc.weighted_value)
+        %td= sprintf('%.1f', stock.score)
+ 
+%br
+ 
+
+
+

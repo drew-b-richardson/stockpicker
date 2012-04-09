@@ -1,0 +1,28 @@
+%html
+  %head
+    %title Stock Picker
+    = stylesheet_link_tag    "style"
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Bitter"
+    = javascript_include_tag 'jquery-1.4.2.min', 'application' 
+    = csrf_meta_tags 
+  %body
+    %div#wrapper
+      %div#header
+        %div#logo
+          %h1 Stock Picker
+        %div#search
+        %div#menu
+          %ul
+            %li
+              = link_to 'Rate Stocks', '/'
+            %li
+              = link_to 'Scenarios', scenarios_path 
+            %li
+              = link_to 'Criterions', criterions_path 
+            %li
+              = link_to 'Check Criterions', :controller => 'criterions', :action => 'check_criterions' 
+
+      %div#page
+        = flash[:notice]
+        = yield 
+

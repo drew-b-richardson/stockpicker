@@ -1,0 +1,29 @@
+%h1 Listing criterions
+
+%table
+  %tr
+    %th Name
+    %th Url
+    %th Xpath
+    %th Node
+    %th Big Is Good
+    %th
+    %th
+    %th
+
+  - @criterions.each do |criterion|
+    %tr
+      %td= criterion.name
+      %td= criterion.url
+      %td= criterion.xpath
+      %td= criterion.node_number
+      %td= criterion.big_is_good
+      %td= link_to 'Show', criterion
+      %td= link_to 'Edit', edit_criterion_path(criterion)
+      %td= button_to 'Destroy', criterion, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'Add New Criterion', new_criterion_path
+
+
