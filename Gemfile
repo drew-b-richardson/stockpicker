@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'mechanize'
 
+  gem 'haml-rails'
 #use postgresql on production heroku
 group :production do
   gem 'pg'
@@ -14,7 +15,6 @@ end
 
 group :development, :test do
   #scaffolding a rails integration with haml on views
-  gem 'haml-rails'
 
   gem 'sqlite3'
   #when you run the annotate command it will show comments on what fields are included in active record model
