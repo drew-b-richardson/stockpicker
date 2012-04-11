@@ -1,0 +1,21 @@
+%h1 Listing watch_lists
+
+%table
+  %tr
+    %th Name
+    %th Stocks
+    %th
+    %th
+    %th
+
+  - @watch_lists.each do |watch_list|
+    %tr
+      %td= watch_list.name
+      %td= watch_list.stocks
+      %td= link_to 'Show', watch_list
+      %td= link_to 'Edit', edit_watch_list_path(watch_list)
+      %td= link_to 'Destroy', watch_list, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Watch list', new_watch_list_path

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @watch_list.name
+%p
+  %b Stocks:
+  = @watch_list.stocks
+
+= link_to 'Edit', edit_watch_list_path(@watch_list)
+\|
+= link_to 'Back', watch_lists_path

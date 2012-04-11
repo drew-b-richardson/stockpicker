@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403222120) do
+ActiveRecord::Schema.define(:version => 20120411020101) do
 
   create_table "criterions", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20120403222120) do
   end
 
   create_table "stocks", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "watch_lists", :force => true do |t|
+    t.string   "name"
+    t.text     "stocks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
