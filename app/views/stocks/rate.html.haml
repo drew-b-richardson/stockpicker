@@ -32,7 +32,8 @@
             |
             = sprintf('%.1f', sc.weighted_value)
         %td= sprintf('%.1f', stock.score)
-        %td= link_to 'Add to favorites',:controller => 'watch_lists', :action => 'add_to_favorites', :stock => stock.stock_symbol
+        %td= link_to 'Add to favorites',{:controller => 'watch_lists', :action => 'add_to_favorites', :stock => stock.stock_symbol}, :remote => true
+%p#stock_added
  
 %br
  

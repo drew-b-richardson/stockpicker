@@ -1,11 +1,12 @@
 class WatchListsController < ApplicationController
+  respond_to :html, :js
 
   def add_to_favorites
     wl = WatchList.find_by_name("favorites")
     wl.stocks = wl.stocks + " #{params[:stock]}"
     wl.save
-    redirect_to :controller=>"stocks", :action=>"rate"
   end
+
 
   # GET /watch_lists
   # GET /watch_lists.json

@@ -4,6 +4,7 @@ Stockpicker::Application.routes.draw do
   match 'stocks/rate' => 'stocks#rate'
   match 'stocks/populate_watchlist/:id' => 'stocks#populate_watchlist'
   match 'watch_lists/add_to_favorites/:stock' => 'watch_lists#add_to_favorites'
+  match 'watch_lists/add_to_favorites/' => 'watch_lists#add_to_favorites'
 
   resources :scenarios
   resources :watch_lists
