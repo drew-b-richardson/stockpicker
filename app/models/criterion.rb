@@ -6,6 +6,7 @@ class Criterion < ActiveRecord::Base
 
 
   @@highest_value = 0
+  @@lowest_value = 1000
 
   def self.highest_value
     @@highest_value
@@ -46,9 +47,14 @@ class Criterion < ActiveRecord::Base
         end  
       end  
 
+      stocks.each do |stock| 
+        if (stock.scenario.scenarioCriterions[i].criterion.raw_value_for_calculations < @@lowest_value)
+          @@lowest_value = stock.scenario.scenarioCriterions[i].criterion.raw_value_for_calculations
+        end  
+      end  
       #create normalized and weighted values for this criterion based on highest value of passed in stocks
       stocks.each do |stock| 
-        stock.scenario.scenarioCriterions[i].criterion.normalized_value = stock.scenario.scenarioCriterions[i].criterion.raw_value_for_calculations/@@highest_value 
+        stock.scenario.scenarioCriterions[i].criterion.normalized_value = (stock.scenario.scenarioCriterions[i].criterion.raw_value_for_calculations - @@lowest_value)/@@highest_value 
         stock.scenario.scenarioCriterions[i].weighted_value = stock.scenario.scenarioCriterions[i].criterion.normalized_value * stock.scenario.scenarioCriterions[i].weight
 
       end  
