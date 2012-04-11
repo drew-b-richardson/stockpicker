@@ -30,7 +30,7 @@ class StocksController < ApplicationController
   def populate_watchlist
     @watchlists = WatchList.all
     wl = WatchList.find(params[:id])
-    @stocks = "arlp codi"
+    @stocks = wl.stocks 
     render  :rate
   end
 end
