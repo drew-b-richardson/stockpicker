@@ -76,5 +76,6 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #  node_number :integer
+#  big_is_good :boolean
 #
 

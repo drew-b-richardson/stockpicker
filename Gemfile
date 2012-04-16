@@ -18,7 +18,7 @@ group :development, :test do
 
   gem 'sqlite3'
   #when you run the annotate command it will show comments on what fields are included in active record model
-  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'annotate', '~> 2.4.1.beta'
 
   #debug and test only use sqlite and debug capabilities
   gem 'sqlite3'
@@ -32,6 +32,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+end
+group :test do
+  gem 'ZenTest'
 end
 
 # Gems used only for assets and not required
