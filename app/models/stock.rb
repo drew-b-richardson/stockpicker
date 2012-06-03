@@ -11,8 +11,6 @@ class Stock < ActiveRecord::Base
   attr_accessor :stock_symbol, :scenario, :score
 
   def initialize stock_symbol, scenario_id
-    puts scenario_id
-    puts "test"
     high_score = 0
     low_score = 100000
     @score = 0

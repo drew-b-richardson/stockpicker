@@ -19,6 +19,7 @@
     %th Score
     %th Add
     %th Links
+    %th Chart
 
   - if @stock_results != nil
     - @stock_results.each do |stock|
@@ -27,16 +28,18 @@
         - stock.scenario.scenarioCriterions.each do |sc| 
           %td
             = sprintf('%.1f', sc.criterion.raw_value)
-            |
-            = sprintf('%.1f', sc.criterion.normalized_value)
-            |
-            = sprintf('%.1f', sc.weighted_value)
+            -#|
+            -#= sprintf('%.1f', sc.criterion.normalized_value)
+            -#|
+            -#= sprintf('%.1f', sc.weighted_value)
         %td= sprintf('%.1f', stock.score)
         %td= link_to 'Add to favorites',{:controller => 'watch_lists', :action => 'add_to_favorites', :stock => stock.stock_symbol}, :remote => true
         %td 
           =link_to 'Yahoo', 'http://finance.yahoo.com/q?s='+ stock.stock_symbol, :target => "_blank"
-          =link_to 'Google', 'http://www.google.com/finance?q='+ stock.stock_symbol, :target => "_blank"
+          =link_to 'Google', 'http://www.google.com/finance?q='+ stock.stock_symbol + '&fstype=ii', :target => "_blank"
           =link_to 'MSN', 'http://investing.money.msn.com/investments/stock-price?Symbol=' + stock.stock_symbol  + '&ocid=qbeb', :target => "_blank"
+          =link_to 'Dividend History', 'http://finance.yahoo.com/q/hp?s=' + stock.stock_symbol + '&a=04&b=18&c=2006&d=05&e=3&f=2012&g=v', :target => "_blank"
+        %td= image_tag 'http://chart.finance.yahoo.com/c/0b/a/' + stock.stock_symbol + '?lang=en-US&region=US&width=300&height=180'
               
 %p#stock_added
  
