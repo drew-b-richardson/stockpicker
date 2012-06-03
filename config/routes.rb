@@ -7,6 +7,9 @@ Stockpicker::Application.routes.draw do
   match 'stocks/populate_chartslist/:id' => 'stocks#populate_chartslist'
   match 'watch_lists/add_to_favorites/:stock' => 'watch_lists#add_to_favorites'
   match 'watch_lists/add_to_favorites/' => 'watch_lists#add_to_favorites'
+  match 'scenarios/addCrit/:id' => 'scenarios#addCrit'
+  match 'scenarios/addCrit/' => 'scenarios#addCrit'
+  match 'scenarios/removeCrit/' => 'scenarios#removeCrit'
 
   resources :scenarios
   resources :watch_lists

@@ -16,6 +16,7 @@
       = builder.collection_select(:criterion_id, Criterion.all, :id, :name)
       = builder.label :weight, "Weight"
       = builder.select(:weight, [['None', 0], ['Light', 1], ['Medium', 2], ['Heavy', 3]])
+      -#= link_to 'remove', :action => 'removeCrit', :id => scenarioCriterion
       = builder.hidden_field(:_destroy) + link_to("remove", "javascript:void(0)", :class => "remove_child")
       - i = i+1
       

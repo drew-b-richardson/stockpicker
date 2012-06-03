@@ -25,9 +25,8 @@ class ScenariosController < ApplicationController
   # GET /scenarios/new.json
   def new
     @scenario = Scenario.new
-    
+    @scenario.scenarioCriterions[0] = ScenarioCriterion.new 
     #add a single default criterion for display
-    5.times {@scenario.scenarioCriterions.build}
   end
 
   # GET /scenarios/1/edit
@@ -75,5 +74,24 @@ class ScenariosController < ApplicationController
       format.html { redirect_to scenarios_url }
       format.json { head :ok }
     end
+  end
+
+  def addCrit
+    if params[:id] == nil
+      @scenario = Scenario.new
+    else
+    @scenario = Scenario.find(params[:id])
+    end
+    @scenario.scenarioCriterions << ScenarioCriterion.new
+    @scenario.save
+
+  render 'new' 
+  end
+
+  def removeCrit
+    sc = ScenarioCriterion.find(params[:id])
+    sc.delete
+    render 'new'
+    
   end
 end
