@@ -6,6 +6,11 @@
   = text_area_tag(:stocks, @stocks)
   %div= submit_tag("View Charts")
 
+%ul
+-@watchlists.each do |wl|
+  %li
+    = link_to wl.name,:controller => 'stocks', :action => 'populate_chartslist', :id => wl.id
+
 -@stock_symbols.each do |stock|
   = image_tag 'http://chart.finance.yahoo.com/z?s=' + stock + '&t=5y&q=l&l=on&z=l&a=v&p=s&lang=en-US&region=US'
   %hr

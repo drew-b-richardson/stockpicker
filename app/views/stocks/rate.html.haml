@@ -6,7 +6,6 @@
   %p= select_tag(:scenarios, options_from_collection_for_select(Scenario.all, :id, :name))
   %div= submit_tag("Rate")
 
-%Rate stocks in a Watchlist
 %ul
 -@watchlists.each do |wl|
   %li

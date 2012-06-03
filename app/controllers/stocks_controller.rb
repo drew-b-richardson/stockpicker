@@ -34,8 +34,17 @@ class StocksController < ApplicationController
     render  :rate
   end
 
+  def populate_chartslist
+    @watchlists = WatchList.all
+    wl = WatchList.find(params[:id])
+    @stocks = wl.stocks 
+    @stock_symbols = []
+    render  :charts
+  end
   def charts
     @stock_symbols = []
+    @watchlists = WatchList.all
+    @watchlists = [] if @watchlists == nil
     if params[:stocks] != nil
       @stock_symbols = Stock.parse_stocks(params[:stocks])
     end

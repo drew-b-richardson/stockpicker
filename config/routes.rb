@@ -4,6 +4,7 @@ Stockpicker::Application.routes.draw do
   match 'stocks/rate' => 'stocks#rate'
   match 'stocks/chart' => 'stocks#charts'
   match 'stocks/populate_watchlist/:id' => 'stocks#populate_watchlist'
+  match 'stocks/populate_chartslist/:id' => 'stocks#populate_chartslist'
   match 'watch_lists/add_to_favorites/:stock' => 'watch_lists#add_to_favorites'
   match 'watch_lists/add_to_favorites/' => 'watch_lists#add_to_favorites'
 

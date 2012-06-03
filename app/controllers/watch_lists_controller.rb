@@ -5,6 +5,7 @@ class WatchListsController < ApplicationController
     wl = WatchList.find_by_name("favorites")
     wl.stocks = wl.stocks + " #{params[:stock]}"
     wl.save
+    redirect_to :controller => 'stocks', :action => 'rate'
   end
 
 
