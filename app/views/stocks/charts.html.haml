@@ -12,5 +12,5 @@
     = link_to wl.name,:controller => 'stocks', :action => 'populate_chartslist', :id => wl.id
 
 -@stock_symbols.each do |stock|
-  = image_tag 'http://chart.finance.yahoo.com/z?s=' + stock + '&t=5y&q=l&l=on&z=l&a=v&p=s&lang=en-US&region=US'
+  = image_tag 'http://chart.finance.yahoo.com/z?s=' + stock + '&t=1y&q=l&l=on&z=l&p=e50,e200,p&a=m26-12-9&lang=en-US&region=US'
   %hr
