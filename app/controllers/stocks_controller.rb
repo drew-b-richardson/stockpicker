@@ -33,4 +33,12 @@ class StocksController < ApplicationController
     @stocks = wl.stocks 
     render  :rate
   end
+
+  def charts
+    @stock_symbols = []
+    if params[:stocks] != nil
+      @stock_symbols = Stock.parse_stocks(params[:stocks])
+    end
+    
+  end
 end
