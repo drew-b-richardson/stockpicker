@@ -8,9 +8,10 @@
 #
 
 class Stock < ActiveRecord::Base
-  attr_accessor :stock_symbol, :scenario, :score
+  attr_accessor :stock_symbol, :scenario, :score, :is_valid
 
   def initialize stock_symbol, scenario_id
+    @is_valid = true
     high_score = 0
     low_score = 100000
     @score = 0
@@ -25,14 +26,19 @@ class Stock < ActiveRecord::Base
 
       sc.criterion.stock = stock_symbol
       sc.criterion.get_value
-      if sc.weighted_value != nil
-        @score += sc.weighted_value
+      if sc.criterion.raw_value != nil && sc.criterion.raw_value > 0 && sc.criterion.raw_value != ''
+        if sc.weighted_value != nil
+          @score += sc.weighted_value
+        end
+      else
+        @is_valid = false
+        break
       end
     end  
 
 
   end
-  
+
   def self.parse_stocks str
     str.upcase.split(/\W+/)
   end

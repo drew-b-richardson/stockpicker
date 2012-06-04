@@ -8,10 +8,13 @@ class StocksController < ApplicationController
       stock_symbols = Stock.parse_stocks(params[:stocks])
       stock_symbols.each do |symbol|
         stock = Stock.new(symbol, params[:scenarios])
-        @stock_results << stock
+        if stock.is_valid
+          @stock_results << stock
+        end
       end
 
       #set normalized values
+      if @stock_results.count > 0
       @stock_results = Criterion.set_normalized_values @stock_results
 
       #find scores
@@ -23,6 +26,7 @@ class StocksController < ApplicationController
 
       #sort the stocks by best score
       @stock_results.sort_by! { |stock| stock.score }.reverse!
+      end
 
     end
 

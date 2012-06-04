@@ -20,7 +20,7 @@ class Criterion < ActiveRecord::Base
       agent = Mechanize.new
       @raw_value = agent.get(url.gsub('#{stock}', @stock)).search(xpath)[node_number].inner_text().to_f
     rescue
-      p "there was no value for #{stock}"
+      @raw_value = nil
     end
   end
 
