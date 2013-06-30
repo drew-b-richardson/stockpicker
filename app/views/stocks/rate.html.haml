@@ -23,7 +23,7 @@
 
   - if @stock_results != nil
     - @stock_results.each do |stock|
-      %tr
+      %tr{:class=>"stock"}
         %td= stock.stock_symbol
         - stock.scenario.scenarioCriterions.each do |sc| 
           %td
@@ -40,7 +40,8 @@
           =link_to 'MSN', 'http://investing.money.msn.com/investments/stock-price?Symbol=' + stock.stock_symbol  + '&ocid=qbeb', :target => "_blank"
           =link_to 'Dividend History', 'http://finance.yahoo.com/q/hp?s=' + stock.stock_symbol + '&a=04&b=18&c=2006&d=05&e=3&f=2012&g=v', :target => "_blank"
         %td= image_tag 'http://chart.finance.yahoo.com/c/0b/a/' + stock.stock_symbol + '?lang=en-US&region=US&width=300&height=180'
-              
+      %script  $(".stock").click(function () {$(this).slideUp(); });
+  
 %p#stock_added
  
 %br
