@@ -46,7 +46,7 @@ group :assets do
   gem 'therubyracer'
 end
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 #gem 'prototype-rails'
 
 # Use unicorn as the web server
