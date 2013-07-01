@@ -1,1 +1,0 @@
-$(function(){$("a.add_child").live("click",function(){var a=$(this).attr("data-association"),b=$(this).prev().html(),c=new RegExp("new_"+a,"g"),d=(new Date).getTime();return $(this).parent().before(b.replace(c,d)),!1}),$("a.remove_child").live("click",function(){var a=$(this).prev("input[type=hidden]")[0];return a&&(a.value="1"),$(this).parents(".criterion:first").hide(),!1})});
