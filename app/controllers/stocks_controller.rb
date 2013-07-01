@@ -15,36 +15,29 @@ class StocksController < ApplicationController
 
       #set normalized values
       if @stock_results.count > 0
-      @stock_results = Criterion.set_normalized_values @stock_results
+        @stock_results = Criterion.set_normalized_values @stock_results
 
-      #find scores
-      @stock_results.each do |stock| 
-        stock.scenario.scenarioCriterions.each do |sc| 
-          stock.score += sc.weighted_value
+        #find scores
+        @stock_results.each do |stock| 
+          stock.scenario.scenarioCriterions.each do |sc| 
+            stock.score += sc.weighted_value
+          end  
         end  
-      end  
 
-      #sort the stocks by best score
-      @stock_results.sort_by! { |stock| stock.score }.reverse!
+        #sort the stocks by best score
+        @stock_results.sort_by! { |stock| stock.score }.reverse!
       end
 
     end
 
   end
-  def populate_watchlist
-    @watchlists = WatchList.all
+
+  def ajax
     wl = WatchList.find(params[:id])
     @stocks = wl.stocks 
-    render  :rate
+    render :layout => false 
   end
 
-  def populate_chartslist
-    @watchlists = WatchList.all
-    wl = WatchList.find(params[:id])
-    @stocks = wl.stocks 
-    @stock_symbols = []
-    render  :charts
-  end
   def charts
     @stock_symbols = []
     @watchlists = WatchList.all
@@ -52,6 +45,6 @@ class StocksController < ApplicationController
     if params[:stocks] != nil
       @stock_symbols = Stock.parse_stocks(params[:stocks])
     end
-    
+
   end
 end

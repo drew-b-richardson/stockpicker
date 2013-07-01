@@ -1,13 +1,21 @@
+$(document).ready(function(){
 
+  //add ajax call to get list of stocks for any wl and populate textfield
+  $(".link").click(function(){
+    $id = $(this).attr('id');
+    $("#stocks").load("/stocks/ajax/" + $id );
+  });
+});
 
 $(function() {
+
 
   //close entries on button clicks
   $(".chart_button").click(function () {$(this).parent().slideUp(); }); 
   $(".rate_button").click(function () {$(this).parent().parent().slideUp(); }); 
 
-  //submit form after enter key when in any textarea
-  $("textarea").keypress(function(event) {
+  //submit form after enter key pressed on any page
+  $("body").keypress(function(event) {
     if (event.which == 13) {
       event.preventDefault();
       $("form").submit();

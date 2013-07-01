@@ -1,17 +1,18 @@
 
 %h1 Chart Stocks
-= form_tag(:controller => "stocks", :action => "charts", :method => "get") do
+= form_tag({:controller => "stocks", :action => "charts", :method => "get"}, {remote: true}) do
   = text_area_tag(:stocks, @stocks)
-  %div 
-    =submit_tag("View")
+  -#%div 
+    -#=submit_tag("View")
 
 %ul
 -@watchlists.each do |wl|
   %li
-    = link_to wl.name,:controller => 'stocks', :action => 'populate_chartslist', :id => wl.id
+    %a{:id => wl.id ,:class => "link"} 
+      =wl.name
 
 -@stock_symbols.each do |stock|
   %div{:class => "chart"} 
     = image_tag 'http://chart.finance.yahoo.com/z?s=' + stock + '&t=1y&q=l&l=on&z=l&p=e50,e200,p&a=m26-12-9&lang=en-US&region=US'
     %button{:class => "chart_button"} close
-  %hr
+  %h

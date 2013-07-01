@@ -10,7 +10,7 @@ Stockpicker::Application.routes.draw do
   match 'scenarios/addCrit/:id' => 'scenarios#addCrit'
   match 'scenarios/addCrit/' => 'scenarios#addCrit'
   match 'scenarios/removeCrit/' => 'scenarios#removeCrit'
-
+  match 'stocks/ajax/:id' => 'stocks#ajax'
   resources :scenarios
   resources :watch_lists
   resources :criterions
