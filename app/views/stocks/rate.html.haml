@@ -1,8 +1,8 @@
 %h1 Stock Rating
 = form_tag(:controller => "stocks", :action => "rate", :method => "get") do
   = text_area_tag(:stocks, @stocks)
-  -#%div 
-    -#=submit_tag("Rate")
+  %div 
+    =submit_tag("Rate")
   %div 
     =select_tag(:scenarios, options_from_collection_for_select(Scenario.all, :id, :name))
 %ul

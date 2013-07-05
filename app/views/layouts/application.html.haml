@@ -3,29 +3,30 @@
     %title 
       = yield :title 
     = stylesheet_link_tag    "style"
-    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Bitter"
-    = javascript_include_tag 'jquery-1.4.2.min', 'application' 
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=bitter"
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" 
+    <script src="/application.js"></script>
     = csrf_meta_tags 
   %body
     %div#wrapper
       %div#header
         %div#logo
-          %h1 Stock Picker
+          %h1 stock picker
         %div#search
         %div#menu
           %ul
             %li
-              = link_to 'Rate Stocks', '/'
+              = link_to 'rate stocks', '/'
             %li
-              = link_to 'Charts',  :controller => 'stocks', :action => 'charts' 
+              = link_to 'charts',  :controller => 'stocks', :action => 'charts' 
             %li
-              = link_to 'Scenarios', scenarios_path 
+              = link_to 'scenarios', scenarios_path 
             %li
-              = link_to 'Criterions', criterions_path 
+              = link_to 'criterions', criterions_path 
             %li
-              = link_to 'Watchlists', watch_lists_path 
+              = link_to 'watchlists', watch_lists_path 
             %li
-              = link_to 'Check Criterions', :controller => 'criterions', :action => 'check_criterions' 
+              = link_to 'check criterions', :controller => 'criterions', :action => 'check_criterions' 
 
       %div#page
         = flash[:notice]
