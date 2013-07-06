@@ -45,6 +45,9 @@ h1,h2,h3,h4 {
 	text-transform: lowercase;
 	letter-spacing: -1px;
 }
+h1{
+  /*padding: 25px, 0, 45px; 0;*/
+}
 
 h2 {
 	font-size: 2.25em;
@@ -53,7 +56,7 @@ h2 {
 h2,h3,h4 {
 	margin-bottom: 25px;
 	color: #FFFFFF;
-	font-family: Bitter, serif;
+	font-family: Tangerine, serif;
 }
 
 h3 {
@@ -78,7 +81,7 @@ p {
 }
 
 ul {
-	margin-bottom: 1.5em;
+	/*margin-bottom: 1.5em;*/
 }
 
 ul h4 {
@@ -107,7 +110,7 @@ ul h4 {
 	border-bottom: solid 1px #8E4602;
 	position: relative;
 	background: #934B07 url(img02.gif) repeat-y top left;
-	height: 140px;
+	height: 80px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
@@ -116,7 +119,7 @@ ul h4 {
 	left: 45px;
 	bottom: 0;
 	line-height: 168px;
-	height: 168px;
+	height: 110px;
 	position: absolute;
 }
 
@@ -126,7 +129,7 @@ ul h4 {
 }
 
 #logo h1 {
-	font-family: Bitter, serif;
+	font-family: Tangerine, serif;
 	font-size: 3.25em;
 }
 
@@ -174,7 +177,7 @@ ul h4 {
 	position: relative;
 	padding: 45px 45px 0px 45px;
 	color: #606060;
-	width: 890px;
+	width: 1200px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -283,7 +286,25 @@ ul h4 {
 }
 
 #wrapper {
-	width: 980px;
-	margin: 80px auto 0 auto;
+	width: 1300px;
+	margin: 20px auto 0 auto;
 	position: relative;
+}
+
+.textarea {
+  /*color: #ff0000;*/
+  height: 100px;
+  width: 400px;
+}
+
+div
+{
+  padding: 10px;
+}
+
+input, select{
+
+	color: #B42D04;
+  height: 20px;
+  width: 80px;
 }
