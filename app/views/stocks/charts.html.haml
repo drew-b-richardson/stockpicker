@@ -1,15 +1,17 @@
 
 %h1 Chart Stocks
 = form_tag({:controller => "stocks", :action => "charts", :method => "get"}, {remote: true}) do
-  = text_area_tag(:stocks, @stocks)
-  -#%div 
-    -#=submit_tag("View")
+  = text_area_tag(:stocks, @stocks, {:class => "textarea"})
+  %div 
+    =submit_tag("View")
 
 %ul
 -@watchlists.each do |wl|
   %li
     %a{:id => wl.id ,:class => "link"} 
       =wl.name
+%li
+  %a{:id=>"clear"} clear
 
 -@stock_symbols.each do |stock|
   %div{:class => "chart"} 

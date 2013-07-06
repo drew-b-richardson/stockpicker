@@ -1,6 +1,6 @@
 %h1 Stock Rating
 = form_tag(:controller => "stocks", :action => "rate", :method => "get") do
-  = text_area_tag(:stocks, @stocks)
+  = text_area_tag(:stocks, @stocks, {:class => "textarea"})
   %div 
     =submit_tag("Rate")
   %div 
@@ -10,6 +10,8 @@
   %li
     %a{:id => wl.id ,:class => "link"} 
       =wl.name
+%li
+  %a{:id=>"clear"} clear
 %table
   %tr
     %th Stock

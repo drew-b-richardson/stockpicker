@@ -3,12 +3,16 @@ $(document).ready(function(){
   //add ajax call to get list of stocks for any wl and populate textfield
   $(".link").click(function(){
     $id = $(this).attr('id');
-    $("#stocks").load("/stocks/ajax/" + $id );
+    $old = $("#stocks").html();
+    $("#stocks").load("/stocks/ajax/" + $id, function(){ $("#stocks").append( $old);});
+    
+
   });
 });
 
 $(function() {
 
+  $("#clear").click(function () {$("#stocks").html(""); }); 
 
   //close entries on button clicks
   $(".chart_button").click(function () {$(this).parent().slideUp(); }); 

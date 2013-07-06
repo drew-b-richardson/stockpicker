@@ -9,6 +9,7 @@ $(document).ready(function(){
 
 $(function() {
 
+  $("#clear").click(function () {alert("here");$("#stocks").text("test "); }); 
 
   //close entries on button clicks
   $(".chart_button").click(function () {$(this).parent().slideUp(); }); 
